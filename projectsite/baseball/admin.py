@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import display
-from .models import Position, Person, Club, Play
+from .models import Position, Person, Club, Play, Match
 
 @admin.register(Position)
 class PositionAdmin(admin.ModelAdmin):
@@ -9,8 +9,8 @@ class PositionAdmin(admin.ModelAdmin):
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ("lastname","firstname","height","weight")
-    search_fields = ("lastname",)
+    list_display = ("lastname", "firstname", "height", "weight")
+    search_fields = ("lastname", "firstname", "height", "weight")
 
 @admin.register(Club)
 class ClubAdmin(admin.ModelAdmin):
@@ -20,3 +20,7 @@ class ClubAdmin(admin.ModelAdmin):
 @admin.register(Play)
 class PlayAdmin(admin.ModelAdmin):
     list_display = ("player","team","string_no","isActive",)
+
+@admin.register(Match)
+class MatchAdmin(admin.ModelAdmin):
+    list_display = ("team1","score_t1","team2","score_t2","winner",)
